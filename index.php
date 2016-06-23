@@ -38,14 +38,16 @@ $container['db'] = function ($c) {
 
 $app->get('/', function($request, $response){
 
-	return $response;
+    $newResponse = $response->withJson($result);
+    return $newResponse;
 
 });
 
 
 $app->get('/{count}',function($request, $response){
 
-	return $response;
+    $newResponse = $response->withJson($result);
+    return $newResponse;
 
 });
 
@@ -54,7 +56,10 @@ $app->post('/login', function($request, $response){
 	$username = $request->getParam('username');
   $password = $request->getParam('password');
 
-  return $response;
+  $result = array();
+
+  $newResponse = $response->withJson($result);
+  return $newResponse;
 
 });
 
