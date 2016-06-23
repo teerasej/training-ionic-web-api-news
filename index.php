@@ -1,4 +1,4 @@
-<?php 
+<?php
 // echo "OK";
 
 require 'vendor/autoload.php';
@@ -38,46 +38,23 @@ $container['db'] = function ($c) {
 
 $app->get('/', function($request, $response){
 
-	$sql = 'SELECT * FROM news ORDER BY createdDate DESC';
-	$result = array();
-	foreach($this->db->query($sql) as $row) {
-	   array_push($result, $row);
-	}
-
-	$newResponse = $response->withJson($result);
-	return $newResponse;
+	return $response;
 
 });
 
 
 $app->get('/{count}',function($request, $response){
 
-	$limit = $request->getAttribute('count');
-	$sql = 'SELECT * FROM news ORDER BY createdDate DESC LIMIT ' . $limit;
-
-	$result = array();
-	foreach($this->db->query($sql) as $row) {
-	   array_push($result, $row);
-	}
-
-	$newResponse = $response->withJson($result);
-	return $newResponse;
+	return $response;
 
 });
 
-$app->post('/search', function($request, $response){
+$app->post('/login', function($request, $response){
 
-	$keyword = $request->getParam('keyword');
-	$sql = 'SELECT * FROM news WHERE title LIKE %' . $keyword . '% ORDER BY createdDate DESC LIMIT 3';
+	$username = $request->getParam('username');
+  $password = $request->getParam('password');
 
-
-	$result = array();
-	foreach($this->db->query($sql) as $row) {
-	   array_push($result, $row);
-	}
-
-	$newResponse = $response->withJson($result);
-	return $newResponse;
+  return $response;
 
 });
 
