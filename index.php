@@ -1,4 +1,4 @@
-<?php 
+<?php
 // echo "OK";
 
 require 'vendor/autoload.php';
@@ -65,29 +65,17 @@ $app->get('/{count}',function($request, $response){
 
 });
 
-$app->post('/search', function($request, $response){
+$app->post('/login', function($request, $response){
 
-	$keyword = $request->getParam('keyword');
-	$sql = 'SELECT * FROM news WHERE title LIKE %' . $keyword . '% ORDER BY createdDate DESC LIMIT 3';
+	$username = $request->getParam('username');
+  $password = $request->getParam('password');
 
-
-	$result = array();
-	foreach($this->db->query($sql) as $row) {
-	   array_push($result, $row);
-	}
+  $result = array('result' => '1');
 
 	$newResponse = $response->withJson($result);
 	return $newResponse;
 
 });
-
-
-
-
-
-
-
-
 
 
 
