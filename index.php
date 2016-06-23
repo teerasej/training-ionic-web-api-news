@@ -38,8 +38,6 @@ $container['db'] = function ($c) {
 
 $app->get('/', function($request, $response){
 
-
-
     $result = array();
 
     $newResponse = $response->withJson($result);
