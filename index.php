@@ -38,6 +38,10 @@ $container['db'] = function ($c) {
 
 $app->get('/', function($request, $response){
 
+
+
+    $result = array();
+
     $newResponse = $response->withJson($result);
     return $newResponse;
 
@@ -45,6 +49,11 @@ $app->get('/', function($request, $response){
 
 
 $app->get('/{count}',function($request, $response){
+
+
+
+    $result = array();
+
 
     $newResponse = $response->withJson($result);
     return $newResponse;
