@@ -68,9 +68,9 @@ $app->get('/{count}',function($request, $response){
 $app->post('/login', function($request, $response){
 
 	$username = $request->getParam('username');
-  $password = $request->getParam('password');
+    $password = $request->getParam('password');
 
-  $result = array('result' => '1');
+    $result = array('result' => '1', 'user' => $username);
 
 	$newResponse = $response->withJson($result);
 	return $newResponse;
