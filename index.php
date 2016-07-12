@@ -58,7 +58,7 @@ $app->get('/{count}',function($request, $response){
 
 });
 
-$app->post('/login', function($request, $response){
+$app->post('/signin', function($request, $response){
 
 	$username = $request->getParam('username');
   $password = $request->getParam('password');
