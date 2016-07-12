@@ -46,18 +46,6 @@ $app->get('/', function($request, $response){
 });
 
 
-$app->get('/{count}',function($request, $response){
-
-
-
-    $result = array();
-
-
-    $newResponse = $response->withJson($result);
-    return $newResponse;
-
-});
-
 $app->post('/signin', function($request, $response){
 
 	$username = $request->getParam('username');
