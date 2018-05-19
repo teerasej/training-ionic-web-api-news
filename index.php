@@ -3,6 +3,7 @@
 
 require 'vendor/autoload.php';
 
+header('Content-Type: text/html; charset=utf-8');
 
 $config['db']['host']   = "localhost";
 $config['db']['user']   = "root";
